@@ -10,7 +10,7 @@ Install `cookiecutter`: `pip install cookiecutter`
 ### Usage
 Generate a new Cookiecutter template layout:
 ```
-cookiecutter gh:hmrc/platsec-aws-lambda-cookiecutter`
+cookiecutter gh:hmrc/platsec-aws-lambda-cookiecutter
 ```
 
 ### License
