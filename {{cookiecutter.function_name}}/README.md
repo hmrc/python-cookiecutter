@@ -1,7 +1,8 @@
 
-# platsec-aws-lambda-cookiecutter
+# {{cookiecutter.function_name}}
 
-This is a placeholder README.md for a new repository
+This aws lambda function will ...
+
 
 ### License
 
