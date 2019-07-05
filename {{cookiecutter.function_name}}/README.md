@@ -1,33 +1,35 @@
+# {{ cookiecutter.function_name }}
 
-# {{cookiecutter.function_name}}
-
-{{cookiecutter.description}}
+{{ cookiecutter.description }}
 
 ### Development environment
-1. Install pipenv
+1. Install pipenv and pre-commit
 ```
-pip install pipenv
+pip install pipenv pre-commit
 ```
 
 2. Clone the repository
 ```
-git clone git@github.com:hmrc/{{cookiecutter.function_name}}.git
-cd {{cookiecutter.function_name}}
-pipenv install
-pipenv shell
-pip install tox
+git clone git@github.com:hmrc/{{ cookiecutter.function_name }}.git
+cd {{ cookiecutter.function_name }}
+pre-commit install && pre-commit autoupdate
+pipenv install && pipenv install tox
 ```
 
-3. Run linters and tests
+3. To run linters and tests
 ```
-tox
+pipenv run tox
 ```
 
-4. Run formatter
+4. To run formatter
 ```
 tox -e black
 ```
 
+### Adding dependencies
+
+- Runtime dependencies should be pinned in `requirements.txt`
+- Testing dependencies should be added to `tox.ini`
 
 ### License
 

@@ -21,15 +21,15 @@ pipeline {
     }
     stage('Generate sha256') {
       steps {
-        sh('openssl dgst -sha256 -binary {{cookiecutter.function_name}}.zip | openssl enc -base64 > {{cookiecutter.function_name}}.zip.base64sha256')
+        sh('openssl dgst -sha256 -binary {{ cookiecutter.function_name }}.zip | openssl enc -base64 > {{ cookiecutter.function_name }}.zip.base64sha256')
       }
     }
     stage('Upload to s3') {
       steps {
         sh("""for env in sandbox integration; do
                 #development qa staging externaltest production; do
-                aws s3 cp {{cookiecutter.function_name}}.zip s3://mdtp-lambda-functions-\${env}/{{cookiecutter.function_name}}.zip --acl=bucket-owner-full-control
-                aws s3 cp {{cookiecutter.function_name}}.zip.base64sha256 s3://mdtp-lambda-functions-\${env}/{{cookiecutter.function_name}}.zip.base64sha256 --content-type text/plain --acl=bucket-owner-full-control
+                aws s3 cp {{ cookiecutter.function_name }}.zip s3://mdtp-lambda-functions-\${env}/{{ cookiecutter.function_name }}.zip --acl=bucket-owner-full-control
+                aws s3 cp {{ cookiecutter.function_name }}.zip.base64sha256 s3://mdtp-lambda-functions-\${env}/{{ cookiecutter.function_name }}.zip.base64sha256 --content-type text/plain --acl=bucket-owner-full-control
                 done
         """)
       }
