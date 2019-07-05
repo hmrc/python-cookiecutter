@@ -4,8 +4,10 @@
 This is a cookiecutter repo to bootstrap an AWS Lambda.
 
 ### Requirements
-Install `cookiecutter`: `pip install cookiecutter`
-
+Install `cookiecutter`:
+```
+pip install cookiecutter
+```
 
 ### Usage
 Generate a new Cookiecutter template layout:
