@@ -1,19 +1,16 @@
 #!/usr/bin/env python3
 """{{ cookiecutter.description }}."""
-import os
 import traceback
-
-import requests
-
 
 
 def lambda_handler(event, context):
-    return main()
+    return main(event["user_name"])
 
 
-def main():
+def main(user_name):
     try:
-        return {"status_code": "200"}
+        if user_name != "oops":
+            return {"status_code": "200"}
+        raise Exception("oops")
     except Exception as e:
         return {"error": str(e), "trace": traceback.format_exc()}
-
