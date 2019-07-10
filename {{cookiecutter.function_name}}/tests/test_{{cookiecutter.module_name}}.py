@@ -1,5 +1,5 @@
 """Test the main module."""
-from {{ cookiecutter.module_name }} import {{ cookiecutter.module_name }}
+import {{ cookiecutter.module_name }}
 
 
 def test_happy_path():
