@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """{{ cookiecutter.description }}."""
+{% if cookiecutter.type == "lambda" %}
 import traceback
 
 
@@ -14,3 +15,10 @@ def main(user_name):
         raise Exception("oops")
     except Exception as e:
         return {"error": str(e), "trace": traceback.format_exc()}
+{% elif cookiecutter.type == "package" %}
+import sys
+
+
+def main():
+    print("Hello, " + sys.argv[1] + "!")
+{% endif -%}

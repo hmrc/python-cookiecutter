@@ -1,6 +1,7 @@
 {
-	"function_name": "hyphenated-function-name",
-    "module_name": "{{cookiecutter.function_name.lower().replace('-', '_')}}",
+    "type": ["lambda", "package"],
+	"project_name": "hyphenated-project-name",
+    "module_name": "{{cookiecutter.project_name.lower().replace('-', '_')}}",
 	"short_description": "Do something",
-    "description": "This Lambda will do something"
+    "description": "This will do something"
 }

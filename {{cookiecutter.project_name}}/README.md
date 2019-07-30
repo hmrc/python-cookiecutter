@@ -1,4 +1,4 @@
-# {{ cookiecutter.function_name }}
+# {{ cookiecutter.project_name }}
 
 {{ cookiecutter.description }}
 
@@ -10,8 +10,8 @@ pip install pipenv pre-commit
 
 2. Clone the repository
 ```
-git clone git@github.com:hmrc/{{ cookiecutter.function_name }}.git
-cd {{ cookiecutter.function_name }}
+git clone git@github.com:hmrc/{{ cookiecutter.project_name }}.git
+cd {{ cookiecutter.project_name }}
 pre-commit install && pre-commit autoupdate
 pipenv install && pipenv install tox
 ```
@@ -28,8 +28,8 @@ tox -e black
 
 ### Adding dependencies
 
-- Runtime dependencies should be pinned in `requirements.txt`
-- Testing dependencies should be added to `tox.ini`
+- Runtime dependencies should be pinned in `setup.py` in `install_requires`.
+- Testing dependencies should be added to `tox.ini` under `testenv.deps` .
 
 ### License
 

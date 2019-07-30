@@ -1,7 +1,17 @@
 
-# platsec-aws-lambda-cookiecutter
+# python-cookiecutter
 
-This is a cookiecutter repo to bootstrap an AWS Lambda.
+This is a [cookiecutter](https://cookiecutter.readthedocs.io/) repo to 
+bootstrap Python projects - either an installable package or an AWS Lambda.
+
+### Out of the Box
+* Could be either a lambda or a standard python package
+* CI ready - see README.md in generated repo
+* `tox` manages testing and releasing
+* `pytest` test runner
+* Coverage reporting and enforcement
+* Enforce `black` formatting
+* Enforce `flake8`
 
 ### Requirements
 Install `cookiecutter`:
@@ -12,7 +22,7 @@ pip install cookiecutter
 ### Usage
 Generate a new Cookiecutter template layout:
 ```
-cookiecutter gh:hmrc/platsec-aws-lambda-cookiecutter
+cookiecutter gh:hmrc/python-cookiecutter
 ```
 
 ### License
