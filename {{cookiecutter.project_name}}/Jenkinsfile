@@ -14,24 +14,35 @@ pipeline {
         deactivate""")
       }
     }
+    
     stage('Build artefact') {
       steps {
         sh('docker run -t -v $(pwd):/data amazonlinux:2018.03.0.20180424 /data/package.sh')
       }
     }
+    
     stage('Generate sha256') {
       steps {
         sh('openssl dgst -sha256 -binary {{ cookiecutter.project_name }}.zip | openssl enc -base64 > {{ cookiecutter.project_name }}.zip.base64sha256')
       }
     }
+    
     stage('Upload to s3') {
       steps {
-        sh("""for env in sandbox integration; do
-                #development qa staging externaltest production; do
-                aws s3 cp {{ cookiecutter.project_name }}.zip s3://mdtp-lambda-functions-\${env}/{{ cookiecutter.project_name }}.zip --acl=bucket-owner-full-control
-                aws s3 cp {{ cookiecutter.project_name }}.zip.base64sha256 s3://mdtp-lambda-functions-\${env}/{{ cookiecutter.project_name }}.zip.base64sha256 --content-type text/plain --acl=bucket-owner-full-control
-                done
-        """)
+        sh("""
+		SANDBOX=platsec-deployment-artifacts-sandbox-93bc63e0b4
+        PRODUCTION=platsec-deployment-artifacts-production-fd89784e59
+
+        for bucket in "\${SANDBOX}" ; do
+          aws s3 cp {{ cookiecutter.project_name }}.zip \
+				"s3://\${bucket}/{{ cookiecutter.project_name }}.zip" \
+			    --acl=bucket-owner-full-control
+
+          aws s3 cp {{ cookiecutter.project_name }}.zip.base64sha256 \
+				"s3://\${bucket}/{{ cookiecutter.project_name }}.zip.base64sha256" \
+				--content-type text/plain --acl=bucket-owner-full-control
+        done
+        """)    
       }
     }
   }
