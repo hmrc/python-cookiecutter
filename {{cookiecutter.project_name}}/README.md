@@ -40,6 +40,10 @@ https://github.com/hmrc/infrastructure-jenkins-pipelines/blob/master/jobs/lambda
 It would cause [Infrastructure's Jenkins](https://jenkins.tools.management.tax.service.gov.uk/)
 to pick up the Jenkinsfile and generate a pipeline for your lambda. 
 
+##### Important Note _!!_
+The generated Jenkinsfile include platsec's deployment buckets - please take care to 
+change the Jenkinsfile to deploy to your team's appropriate buckets _!!_
+
 Once the lambda is packaged and uploaded to S3, it can be accessed by terraform.
 {%- elif cookiecutter.type == "package" %}
 Create a PR for this file:
