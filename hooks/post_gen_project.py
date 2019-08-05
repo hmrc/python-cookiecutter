@@ -9,3 +9,4 @@ if not is_lambda:
     os.remove("Jenkinsfile")
 
 subprocess.run(["git", "init", "."])
+subprocess.run(["tox", "-e", "black"])

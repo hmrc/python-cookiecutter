@@ -1,5 +1,6 @@
 {
     "type": ["lambda", "package"],
+    "python_version": "3.6.5",
 	"project_name": "hyphenated-project-name",
     "module_name": "{{cookiecutter.project_name.lower().replace('-', '_')}}",
 	"short_description": "Do something",

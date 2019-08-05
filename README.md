@@ -14,9 +14,14 @@ bootstrap Python projects - either an installable package or an AWS Lambda.
 * Enforce `flake8`
 
 ### Requirements
-Install `cookiecutter`:
+Install `cookiecutter` and `tox`:
 ```
-pip install cookiecutter
+pip install cookiecutter tox
+```
+
+You might need to run a pyenv rehash so the command-line utils become available:
+```
+pyenv rehash
 ```
 
 ### Usage

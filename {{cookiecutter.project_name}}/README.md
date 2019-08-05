@@ -3,6 +3,11 @@
 {{ cookiecutter.description }}
 
 ### Development environment
+0. Install Python {{ cookiecutter.python_version }} with [pyenv](https://github.com/pyenv/pyenv)
+```
+pyenv install {{ cookiecutter.python_version }}
+```
+
 1. Install pipenv and pre-commit
 ```
 pip install pipenv pre-commit
@@ -46,7 +51,8 @@ change the Jenkinsfile to deploy to your team's appropriate buckets _!!_
 
 Once the lambda is packaged and uploaded to S3, it can be accessed by terraform.
 {%- elif cookiecutter.type == "package" %}
-Create a PR for this file:
+Create a PR (via a fork if you lack permissions) for this file (NOTE: this is the platsec 
+file -- use the file appropriate for your team :smile:)
 
 https://github.com/hmrc/build-jobs/blob/master/jobs/live/platsec.groovy
 
