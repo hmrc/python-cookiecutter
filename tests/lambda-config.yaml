@@ -1,0 +1,6 @@
+default_context:
+    type: lambda
+    project_name: lambda-test
+    module_name: lambda_test
+    short_description: short_description
+    description: description

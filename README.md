@@ -30,6 +30,13 @@ Generate a new Cookiecutter template layout:
 cookiecutter gh:hmrc/python-cookiecutter
 ```
 
+### Testing
+There's a miniature test suite that can be run before merging changes:
+```
+cd tests/
+./test.sh
+```
+
 ### License
 
 This code is open source software licensed under the [Apache 2.0 License]("http://www.apache.org/licenses/LICENSE-2.0.html").
