@@ -9,11 +9,11 @@ def read(filename):
     return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 
-install_requires = []
+install_requires = read("requirements.txt")
 
 setup(
     name="{{ cookiecutter.project_name }}",
-    author="HRMC Platform Security",
+    author="HMRC Platform Security",
     version=read(".version"),
     description="{{ cookiecutter.short_description }}",
     url="https://github.com/hmrc/{{ cookiecutter.project_name }}",
