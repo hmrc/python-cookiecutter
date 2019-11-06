@@ -8,9 +8,9 @@
 pyenv install {{ cookiecutter.python_version }}
 ```
 
-1. Install pipenv and pre-commit
+1. Install pre-commit
 ```
-pip install pipenv pre-commit
+pip install pre-commit
 ```
 
 2. Clone the repository
@@ -18,12 +18,13 @@ pip install pipenv pre-commit
 git clone git@github.com:hmrc/{{ cookiecutter.project_name }}.git
 cd {{ cookiecutter.project_name }}
 pre-commit install && pre-commit autoupdate
-pipenv install && pipenv install tox
+python3 -m venv venv && source venv/bin/activate  # Use any virtualenv provider you like
+pip install tox
 ```
 
 3. To run linters and tests
 ```
-pipenv run tox
+tox
 ```
 
 4. To run formatter
@@ -31,10 +32,15 @@ pipenv run tox
 tox -e black
 ```
 
+5. If you've added dependencies to the requirements files, run tox with `-r` flag to recreate the virtualenvs:
+```
+tox -r
+```
+
 ### Adding dependencies
 
-- Runtime dependencies should be pinned in `setup.py` in `install_requires`.
-- Testing dependencies should be added to `tox.ini` under `testenv.deps` .
+- Runtime dependencies should be pinned in in `requirements.txt`. `setup.py` reads that file during installation.
+- Testing dependencies should be added to `requirements-test.txt`. `tox` reads that file when installing test dependencies.
 
 ### Setting up CI with Jenkins
 {%- if cookiecutter.type == "lambda" %}
