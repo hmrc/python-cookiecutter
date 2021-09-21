@@ -46,7 +46,7 @@ tox -r
 {%- if cookiecutter.type == "lambda" %}
 Create a PR (via a fork if you lack permissions) for this file: 
 
-https://github.com/hmrc/infrastructure-jenkins-pipelines/blob/master/jobs/lambda/seed.groovy
+https://github.com/hmrc/infrastructure-jenkins-pipelines/blob/HEAD/jobs/lambda/seed.groovy
 
 It would cause [Infrastructure's Jenkins](https://jenkins.tools.management.tax.service.gov.uk/)
 to pick up the Jenkinsfile and generate a pipeline for your lambda. 
@@ -60,7 +60,7 @@ Once the lambda is packaged and uploaded to S3, it can be accessed by terraform.
 Create a PR (via a fork if you lack permissions) for this file (NOTE: this is the platsec 
 file -- use the file appropriate for your team :smile:)
 
-https://github.com/hmrc/build-jobs/blob/master/jobs/live/platsec.groovy
+https://github.com/hmrc/build-jobs/blob/HEAD/jobs/live/platsec.groovy
 
 and add CI jobs, for example for a repo named `request-ssh-access`:
 ```groovy
